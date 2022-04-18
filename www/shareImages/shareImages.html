@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share images</title>
+  </head>
+  <body>
+    <main>
+      <form action="shareImages.php" enctype="multipart/form-data" method="post" class="container" id="share-images">
+        <input id="image-upload" type="file" name="image" />
+
+        <label for="image-description">Description</label>
+        <textarea id="description" name="description" rows="5" cols="33"> </textarea>
+
+        <select id="image-share-options" name="shareOptions">
+            <option value="select">Select sharing level</option>
+            <option value="public">Public</option>
+            <option value="internal">Internal</option>
+            <option value="private">Private</option>
+
+
+        <input type="submit" value="Sharing now">
+      </form>
+
+
+    </main>
+  </body>
+</html>
