@@ -1,0 +1,27 @@
+#shareForm {
+  background-color: rgba(128, 128, 128, 0.525);
+}
+
+#share-image-section {
+  padding-right: 200px;
+}
+
+#share-image-section label {
+  text-align: left;
+}
+
+#frame {
+  width: 50%;
+  height: 50%;
+  display: none;
+}
+
+#description {
+  border-radius: 10px;
+  width: 25rem;
+  height: 23rem;
+}
+
+.form-select {
+  width: 50% !important; 
+}
