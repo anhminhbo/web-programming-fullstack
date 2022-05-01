@@ -1,3 +1,4 @@
+<?php include("register-ss.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,6 +90,7 @@
         <div id="alert" class="fw-bolder mt-2 alert alert-primary inform-box">
             The first name and last name field need to contain from 2 to 20 characters. Use a password between 6 to 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter.
         </div>
+        <?php include("errors.php")?>
         <div class="mb-3">
             <button id="r-btn" class="btn btn-dark mr-1">Reset</button>
             <button id="s-btn" type="submit" class="btn btn-primary ml-1">Register</button>

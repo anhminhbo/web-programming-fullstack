@@ -11,7 +11,8 @@
     
     //Connect to database
 
-    $db = fopen("../../accounts.db", "r+");
+    $read_db = file("../../accounts.db");
+    $write_db = fopen("../../accounts.db", "a");
 
     //Register user
 
@@ -25,7 +26,7 @@
         $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
 
         // Check if fname in database
-        foreach ($db as $line) {
+        foreach ($read_db as $line) {
             $email_temp = strchr($line, "|", true);
             if ($email == $email_temp) {
                 array_push($errors, "Username duplicated.");
@@ -37,7 +38,8 @@
             $result = $email . "|" . $hashed_pass . "|" . $fname . "|" . $lname . "\n";
 
             // Store data
-            fwrite($db, $result);
+            fwrite($write_db, $result);
+            fclose($write_db);
 
             // Create SESSION
             $_SESSION["email"] = $email;
@@ -45,7 +47,7 @@
             $_SESSION["lname"] = $lname;
 
             // Redirect
-            header("location: login.php");
+            // header("location: login.php");
         }
     }
 ?>
