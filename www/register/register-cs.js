@@ -58,16 +58,3 @@ document.getElementById("pass").onkeyup = function(e){
     }
     check_pass();
 }
-
-document.getElementById("s-btn").onclick = function(e){
-    e.preventDefault();
-    if ((document.getElementById("pass").value == document.getElementById("re-pass").value) && 
-        (document.getElementById("fname").value.match(nameregex)) && 
-        (document.getElementById("lname").value.match(nameregex)) &&
-        (document.getElementById("pass").value.match(passregex))){
-            // INSERT PHP TO STORE DATA WHEN ALL CONDITIONS ARE MET
-        }
-        else{
-            // ALERT THE USER ABOUT INVALID THINGS
-        }
-}
