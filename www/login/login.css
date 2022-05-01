@@ -1,0 +1,27 @@
+.outside-box{
+    width: 29rem; 
+    background-color: rgba(59, 167, 200, 0.466);
+}
+
+.input-text-and-password{
+    border-radius: 10px; 
+    width: 25rem;
+}
+
+.label-coloring{
+    color: #0074d9;
+}
+
+.link{
+    font-style: italic;
+    color: #000000;
+}
+
+.link:hover{
+    color: #0074d9;
+}
+
+.vertically-center{
+    -ms-transform: translateY(+50%);
+    transform: translateY(+50%);
+}
