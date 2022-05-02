@@ -110,3 +110,16 @@
     width: 208px;
     font-size: small;
 }
+
+.margin-resize{
+    margin-bottom: 5px;
+}
+
+.error-box{
+    font-size: 15px;
+}
+
+.marginBottomResize{
+    display: inline;
+    margin-bottom: 5px;
+}
