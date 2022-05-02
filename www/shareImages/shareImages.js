@@ -1,26 +1,126 @@
-const inf = document.getElementById("inf");
+// --- Handle when user upload image
+function handlePreview() {
+  hideImgError();
+  if (isImgValid()) {
+    hideImgInstruction();
+    displayImgPreview();
+  } else {
+    hideImgBox();
+    showImgInstruction();
+    displayImgError();
+  }
+}
 
 // preview image before share
-function preview() {
+function displayImgPreview() {
   var fr = document.getElementById("frame");
   fr.style.display = "initial";
-  frame.src = URL.createObjectURL(event.target.files[0]);
+  fr.src = URL.createObjectURL(event.target.files[0]);
+}
+
+function hideImgInstruction() {
+  const inf = document.getElementById("inf");
   inf.style.display = "none";
 }
 
 document
   .querySelector("#form-image-upload")
-  .addEventListener("change", preview);
+  .addEventListener("change", handlePreview);
 
 // delete preview image
+function showImgInstruction() {
+  const inf = document.getElementById("inf");
+  inf.style.display = "initial";
+}
+
+function hideImgBox() {
+  var fr = document.getElementById("frame");
+  fr.src = "";
+  fr.style.display = "none";
+}
+
 document
   .querySelector("#form-image-delete")
   .addEventListener("click", (event) => {
     event.preventDefault();
     document.getElementById("form-image-upload").value = null;
-    frame.src = "";
-    inf.style.display = "initial";
+    hideImgBox();
+    showImgInstruction();
   });
 
-  
+// --- Handle when user submit form
 
+//img
+function isImgValid() {
+  const img = document.body.querySelector('input[type="file"]');
+  const isValid = img.files[0] && img.files[0].type.includes("image");
+
+  return isValid;
+}
+
+function displayImgError() {
+  const imgErr = document.querySelector("#img-error");
+  imgErr.innerHTML = "Your upload is not an image.";
+}
+
+function hideImgError() {
+  const imgErr = document.querySelector("#img-error");
+  imgErr.innerHTML = "";
+}
+
+//textarea
+function isDescValid() {
+  let isValid = true;
+  const desc = document.querySelector("#description");
+  if (!desc.value) {
+    return !isValid;
+  }
+
+  return isValid;
+}
+
+function displayDescError() {
+  const descError = document.querySelector("#desc-error");
+  descError.innerHTML = "Your description must not be empty.";
+}
+
+function hideDescError() {
+  const descError = document.querySelector("#desc-error");
+  descError.innerHTML = "";
+}
+
+//Combo box
+function isOptionValid() {
+  let isValid = true;
+  const sharingLevel = document.querySelector("#sharingLevel");
+  if (sharingLevel.value == 0) return !isValid;
+
+  return isValid;
+}
+
+function displayOptionError() {
+  const levelError = document.querySelector("#level-error");
+  levelError.innerHTML = "You must choose a sharing level.";
+}
+
+function hideOptionError() {
+  const levelError = document.querySelector("#level-error");
+  levelError.innerHTML = "";
+}
+
+//form
+const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+  if (isDescValid() && isImgValid() && isOptionValid()) {
+    console.log("direct to view image");
+    return;
+  }
+  e.preventDefault();
+  if (!isImgValid()) displayImgError();
+  else hideImgError;
+
+  if (!isDescValid()) displayDescError();
+  else hideDescError();
+  if (!isOptionValid()) displayOptionError();
+  else hideOptionError();
+});

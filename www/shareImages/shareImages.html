@@ -41,7 +41,12 @@
       </section>
 
       <section class="mb-3 row">
-        <input class="form-control col" type="file" id="form-image-upload" />
+        <input
+          class="form-control col"
+          type="file"
+          id="form-image-upload"
+          name="imgUpload"
+        />
         <button class="btn btn-primary col-3" id="form-image-delete">
           Delete
         </button>
@@ -54,7 +59,8 @@
         Your image will be displayed here.
       </section>
 
- <img id="frame" src="" class="img-fluid rounded img-thumbnail" >
+      <img id="frame" src="" class="img-fluid rounded img-thumbnail" />
+      <span id="img-error" class="error"></span>
 
       <section class="form-floating mb-3 mt-3">
         <textarea
@@ -62,17 +68,25 @@
           class="form-control"
           name="description"
           id="description"
-        >
-        </textarea>
-        <label for="description">Description</label>
+        ></textarea
+        ><label for="description">Description</label>
       </section>
 
-      <select class="form-select form-select-sm mb-2" aria-label=".form-select-sm example">
-        <option selected>Sharing level</option>
+      <span id="desc-error" class="error mb-3"></span>
+
+      <select
+        class="form-select form-select-sm mb-2"
+        aria-label=".form-select-sm example"
+        name="sharingLevel"
+        id="sharingLevel"
+      >
+        <option value="0" selected>Sharing level</option>
         <option value="1">Public</option>
         <option value="2">Internal</option>
         <option value="3">Private</option>
       </select>
+
+      <span id="level-error" class="error mb-3"></span>
 
       <section class="mb-3">
         <button type="submit" class="btn btn-primary ml-1">Sharing now</button>
