@@ -1,0 +1,112 @@
+.input-text-and-password{
+    border-radius: 10px; 
+    width: 25rem;
+}
+
+.input-name{
+    border-radius: 10px; 
+    width: 12rem;
+}
+
+.inform-box{
+    text-align: justify; 
+    font-size: 13px; 
+    border-radius: 10px; 
+    width: 25rem;
+}
+
+#frame{
+    display: none;
+}
+
+.align-left{
+    padding-right: 12.5rem;
+}
+
+.space{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.outside-box{
+    width: 29rem; 
+    background-color: rgba(59, 167, 200, 0.466);
+}
+
+.picture-sizing{
+    width: 90%;
+}
+
+.label-coloring{
+    color: #0074d9;
+}
+
+.stack-top{
+    position: absolute;
+    z-index: 9;
+    margin-top: 3.5rem;
+}
+
+.arrow-up{
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f8d7da;
+    margin-top: -12px;
+}
+
+.arrow-left{
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #f8d7da;
+    margin-bottom: -35px;
+    margin-left: -10px;
+}
+
+.cl-m-top{
+    margin-top: 0;
+}
+
+.cl-bd{
+    border-color: #f8d7da;
+    border-radius: 0;
+}
+    
+#alert-fname{
+    margin-left: 1rem;
+    display: none;
+}
+
+#alert-lname{
+    margin-left: 15rem;
+    display: none;
+}
+
+#alert-email{
+    margin-top: -1.75rem;
+    margin-left: 12.5rem;
+}
+
+#alert-pass{
+    margin-top: -1.75rem;
+    margin-left: 12.5rem;
+    display: none;
+}
+
+#alert-re-pass{
+    margin-top: -1.75rem;
+    margin-left: 12.5rem;
+    display: none;
+}
+
+#alert-email{
+    display: none;
+}
+
+.sized{
+    width: 208px;
+    font-size: small;
+}
