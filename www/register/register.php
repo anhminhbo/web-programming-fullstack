@@ -15,7 +15,7 @@
         <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
           <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
         </symbol>
-      </svg>
+    </svg>
     <form class="container-sm mt-5 mb-5 d-flex align-items-center align-self-center flex-column rounded shadow-lg outside-box" enctype="multipart/form-data" method="post">
         <h1 class="mt-3 mb-3 p-3 fw-bolder">Register</h1>
         <div class="d-flex mb-3">
@@ -90,7 +90,7 @@
         <div id="alert" class="fw-bolder mt-2 alert alert-primary inform-box">
             The first name and last name field need to contain from 2 to 20 characters. Use a password between 6 to 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter.
         </div>
-        <?php include("errors.php")?>
+        <?php include("../informErrors/errors.php")?>
         <div class="mb-3">
             <button id="r-btn" class="btn btn-dark mr-1">Reset</button>
             <button id="s-btn" type="submit" class="btn btn-primary ml-1">Register</button>

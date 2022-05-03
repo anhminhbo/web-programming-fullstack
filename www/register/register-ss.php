@@ -62,10 +62,6 @@
             // Combine data into a line
             $result = $email . "|" . $hashed_pass . "|" . $fname . "|" . $lname . "|" . $createdDate . "\n";
 
-            // Store data
-            fwrite($write_db, $result);
-            fclose($write_db);
-
             // Store profile picture
             if ($target_file != $target_dir . "default.png") {
                 $filecount = 0;
@@ -84,18 +80,19 @@
                 // Link profile image to an email
                 $img_result = $email . "|" . "default.png" . "\n";
             }
-
-            // Store data about picture in database
+            
+            // Store data
+            fwrite($write_db, $result);
+            fclose($write_db);
             fwrite($writeImg_db, $img_result);
             fclose($writeImg_db);
             
             // Create SESSION
             $_SESSION["email"] = $email;
-            $_SESSION["fname"] = $fname;
-            $_SESSION["lname"] = $lname;
+            $_SESSION["pass"] = $pass;
 
             // Redirect
-            // header("location: login.php");
+            header("location: ../login/login.php");
         }
     }
     //Khuong.916037
