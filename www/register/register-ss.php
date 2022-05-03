@@ -40,7 +40,6 @@
 
         // Check the condition of profile picture
         if (isset($_FILES["profileImg"]) && $_FILES["profileImg"]["name"] != "") {
-            print_r($_FILES["profileImg"]);
             $target_file = $target_dir . basename($_FILES["profileImg"]["name"]);
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
@@ -56,8 +55,12 @@
 
         // STORING
         if (count($errors) == 0) {
+            // Get created date
+            date_default_timezone_set("Asia/Ho_Chi_Minh");
+            $createdDate = date("h:i:s") . "|" . date("d/m/Y");
+        
             // Combine data into a line
-            $result = $email . "|" . $hashed_pass . "|" . $fname . "|" . $lname . "\n";
+            $result = $email . "|" . $hashed_pass . "|" . $fname . "|" . $lname . "|" . $createdDate . "\n";
 
             // Store data
             fwrite($write_db, $result);
