@@ -23,7 +23,14 @@
         <section class="header-login-container"></section>
       </header>
 
-      <main></main>
+      <main>
+      <?php if ($_SESSION["loggedIn"] == true) : ?>
+        
+      <?php endif ?>
+      <?php if ($_SESSION["loggedIn"] == false) : ?>
+        
+      <?php endif ?>
+      </main>
 
       <footer>
         <ul class="footer-list">
