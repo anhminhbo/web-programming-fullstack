@@ -92,5 +92,4 @@
             header("location: ../login/login.php");
         }
     }
-    //Khuong.916037
 ?>
