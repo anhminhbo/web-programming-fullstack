@@ -9,9 +9,11 @@
 
      $imgDesc = $_POST['description'];
      $imgSharingLevel = $_POST['sharingLevel'];
+    
+    // print_r($_SESSION);
 
-   //$user_email = $_SESSION["email"];
-     $userEmail = "testEmail";
+     $userEmail = $_SESSION["email"];
+
      $imgUploadRepo = '../uploadImgRepo/';
      $imgName = $imgUploadRepo . basename($_FILES["imgUpload"]["name"]);
      $imgFileType = strtolower(pathinfo($imgName,PATHINFO_EXTENSION));

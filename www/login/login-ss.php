@@ -14,7 +14,7 @@
     $errors = array();
 
     // Login phase
-    if (isset($_POST["email"]) && isset($_POST["pass"])) {
+    if (isset($_POST["loginAction"]) && isset($_POST["email"]) && isset($_POST["pass"])) {
 
         // Attach data to variables
         $email = strtolower($_POST["email"]);
@@ -53,6 +53,8 @@
                 $_SESSION["fname"] = $fname;
                 $_SESSION["lname"] = $lname;
                 $_SESSION["imgFileName"] = $imgFileName;
+
+                print_r($_SESSION);
                 header("Location: ../index.php");
             }
             else {

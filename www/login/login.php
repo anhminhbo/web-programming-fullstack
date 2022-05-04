@@ -3,13 +3,14 @@
     include("login-ss.php");
     $emailFromRegister = "";
     $passFromRegister = "";
+    print_r($_SESSION);
     if (isset($_SESSION["email"])) {
         $emailFromRegister = $_SESSION["email"];
     }
     if (isset($_SESSION["pass"])) {
         $passFromRegister = $_SESSION["pass"];
     }
-    unset($_SESSION["email"]);
+    // unset($_SESSION["email"]);
     unset($_SESSION["pass"]);
 ?>
 <!DOCTYPE html>
@@ -40,7 +41,7 @@
             <label for="pass" class="label-coloring">Password</label>
         </div>
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary ml-1">Login</button>
+            <button type="submit" class="btn btn-primary ml-1" name="loginAction">Login</button>
         </div>
         <?php include("../informErrors/errors.php")?>
         <div class="mb-3">
