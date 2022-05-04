@@ -33,6 +33,16 @@
             }
         }
 
+        // Get picture
+        $readImg_db = readInfo("../profileImgRepo/profilePicture.db", "r");
+        foreach ($readImg_db as $line) {
+            $email_temp = $line[0];
+            if ($email == $email_temp) {
+                $imgFileName = $line[1];
+                break;
+            }
+        }
+
         // If email in database
         if ($isExistedEmail == 1) {
             if (password_verify($pass, $hashed_pass)) {
@@ -42,7 +52,8 @@
                 $_SESSION["email"] = $email;
                 $_SESSION["fname"] = $fname;
                 $_SESSION["lname"] = $lname;
-                header("Location: ../../index.php");
+                $_SESSION["imgFileName"] = $imgFileName;
+                header("Location: ../index.php");
             }
             else {
                 array_push($errors, "Password is not matched. Please try again.");
