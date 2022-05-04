@@ -1,49 +1,38 @@
 <?php
   session_start();
+  $errors = array();
   
   if (isset($_POST['shareImgSubmit']) && isset($_POST['description']) 
   && isset($_POST['sharingLevel']) && isset($_FILES['imgUpload'])) {
-     $errors = array();
+   require_once('../util/imageHandler.php');
+   require_once('../util/db.php');
 
      $imgDesc = $_POST['description'];
      $imgSharingLevel = $_POST['sharingLevel'];
 
    //$user_email = $_SESSION["email"];
      $userEmail = "testEmail";
-     
      $imgUploadRepo = '../uploadImgRepo/';
      $imgName = $imgUploadRepo . basename($_FILES["imgUpload"]["name"]);
      $imgFileType = strtolower(pathinfo($imgName,PATHINFO_EXTENSION));
 
    // rename img
-     $filecount = 0;
-     $files = glob($imgUploadRepo . "*.{jpg,png,gif,jpeg}",GLOB_BRACE);
-     if ($files){
-         $filecount = count($files);
-     }
-     $newImgName = "IMG" . strval($filecount) . "." . $imgFileType;
+     $newImgName = renameImg($imgFileType,$imgUploadRepo);
 
    // move to upload img repo
      $uploadPath = $imgUploadRepo . $newImgName;
      move_uploaded_file($_FILES["imgUpload"]["tmp_name"], $uploadPath);
 
    //time when create img
-     $timeNow = date("H:i:s d-m-Y",time() + 25200); // time in Vietnamese
+     date_default_timezone_set("Asia/Ho_Chi_Minh");
+     $timeNow = date("H:i:s d-m-Y",time());
 
      // img text to insert in db
      $imgArrayText = [$userEmail, $newImgName,$imgDesc,$imgSharingLevel,$timeNow];
 
      //write to db
-     $dbRepo = '../uploadImgRepo/uploadImgRepo.db';
-
-     $writeUploadDb = fopen($dbRepo, "a");
-
-     flock($writeUploadDb, LOCK_EX);
-
-     fputcsv($writeUploadDb, $imgArrayText);
-
-     flock($writeUploadDb, LOCK_UN);
-     fclose($writeUploadDb);
+     $uploadImgDbRepo = '../uploadImgRepo/uploadImgRepo.db';
+     storeInfo($uploadImgDbRepo,$imgArrayText,"a");
 
 //      // read from db
 //      $records = [];

@@ -40,7 +40,7 @@
             <label for="pass" class="label-coloring">Password</label>
         </div>
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary ml-1">Register</button>
+            <button type="submit" class="btn btn-primary ml-1">Login</button>
         </div>
         <?php include("../informErrors/errors.php")?>
         <div class="mb-3">

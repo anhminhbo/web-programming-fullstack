@@ -16,10 +16,11 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="shareImages.css" />
+
     <title>Share image</title>
   </head>
   <body>
+  <link rel="stylesheet" href="shareImages.css" />
     <form
       enctype="multipart/form-data"
       method="post"
@@ -44,6 +45,7 @@
         <input
           class="form-control col"
           type="file"
+          accept=".jpg, .jpeg, .png, .gif"
           id="form-image-upload"
           name="imgUpload"
         />

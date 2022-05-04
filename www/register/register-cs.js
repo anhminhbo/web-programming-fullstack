@@ -7,7 +7,8 @@ function preview() {
     inf.style.display = "none";
 }
 
-function clearImage() {
+function clearImage(e) {
+    e.preventDefault();
     document.getElementById('formFile').value = null;
     frame.src = "";
     inf.style.display = "initial"

@@ -1,6 +1,7 @@
 <?php
     session_start();
-
+    require_once('../util/imageHandler.php');
+    require_once('../util/db.php');
     //Initializing variables
 
     $fname = "";
@@ -33,7 +34,7 @@
         foreach ($read_db as $line) {
             $email_temp = strchr($line, "|", true);
             if ($email == $email_temp) {
-                array_push($errors, "Username duplicated.");
+                array_push($errors, "Email duplicated.");
                 break;
             }
         }
@@ -57,35 +58,34 @@
         if (count($errors) == 0) {
             // Get created date
             date_default_timezone_set("Asia/Ho_Chi_Minh");
-            $createdDate = date("h:i:s") . "|" . date("d/m/Y");
+            $createdDate = date("H:i:s d-m-Y",time());
         
             // Combine data into a line
-            $result = $email . "|" . $hashed_pass . "|" . $fname . "|" . $lname . "|" . $createdDate . "\n";
-
+            $result = [$email,$hashed_pass,$fname,$lname,$createdDate];
             // Store profile picture
             if ($target_file != $target_dir . "default.png") {
-                $filecount = 0;
-                $files = glob($target_dir . "*.{jpg,png,gif,jpeg}",GLOB_BRACE);
-                if ($files){
-                    $filecount = count($files);
-                }
-                $new_img_name = "IMG" . strval($filecount) . "." . $imageFileType;
-                $uploadPath = $target_dir . $new_img_name;
+                $new_img_name =  renameImg($imageFileType, $target_dir);
+                $uploadPath = $target_dir .$new_img_name;
+
                 move_uploaded_file($_FILES["profileImg"]["tmp_name"], $uploadPath);
 
                 // Link profile image to an email
-                $img_result = $email . "|" . $new_img_name . "\n";
+                $img_result = [$email,$new_img_name];
             }
             else {
                 // Link profile image to an email
-                $img_result = $email . "|" . "default.png" . "\n";
+                $img_result = [$email,"default.png"];
             }
             
-            // Store data
-            fwrite($write_db, $result);
-            fclose($write_db);
-            fwrite($writeImg_db, $img_result);
-            fclose($writeImg_db);
+            // Store img info
+            $profileDbRepoPath = "../profileImgRepo/profilePicture.db";
+            storeInfo($profileDbRepoPath,$img_result,"a");
+
+            //store user info
+
+            $accDbRepoPath =  "../../accounts.db";
+            storeInfo($accDbRepoPath,$result,"a");
+    
             
             // Create SESSION
             $_SESSION["email"] = $email;
