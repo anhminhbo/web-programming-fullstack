@@ -8,6 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css" />
+    <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/dropzone"></script>
+    <script src="https://unpkg.com/cropperjs"></script>
     <title>Register</title>
 </head>
 <body>
@@ -47,12 +52,36 @@
             <label class="col align-text-start" for="profileImg">Upload your Avatar picture</label>
         </div>
         <div class="mb-3 row">
-            <input class="form-control col" name="profileImg" type="file" id="profileImg" accept=".jpg, .jpeg, .png, .gif" onchange="preview()">
-            <button onclick="clearImage()" class="btn btn-primary col-3">Delete</button>
+            <input class="form-control" name="profileImg" type="file" id="profileImg" accept=".jpg, .jpeg, .png, .gif">
+            <!-- <button id="deleteImg" class="btn btn-primary col-3">Delete</button> -->
         </div>
-        <div class="picture-sizing">
-            <div id="inf" class="alert alert-primary text-center fw-lighter fst-italic ms-5 me-5">Your picture will be displayed here.</div>
-            <img id="frame" src="" class="mb-3 img-fluid rounded">
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Crop Image Before Upload</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="img-container">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <img src="" id="sample_image" />
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="preview"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="crop" class="btn btn-primary">Crop</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="form-floating mb-3">
             <input type="email" class="form-control input-text-and-password" name="email" id="email" placeholder="#">
