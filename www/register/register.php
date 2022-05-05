@@ -53,7 +53,6 @@
         </div>
         <div class="mb-3 row">
             <input class="form-control" name="profileImg" type="file" id="profileImg" accept=".jpg, .jpeg, .png, .gif">
-            <!-- <button id="deleteImg" class="btn btn-primary col-3">Delete</button> -->
         </div>
         <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
