@@ -3,7 +3,6 @@
     include("login-ss.php");
     $emailFromRegister = "";
     $passFromRegister = "";
-    print_r($_SESSION);
     if (isset($_SESSION["email"])) {
         $emailFromRegister = $_SESSION["email"];
     }

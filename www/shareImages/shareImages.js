@@ -112,7 +112,7 @@ function hideOptionError() {
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   if (isDescValid() && isImgValid() && isOptionValid()) {
-    console.log("direct to view image");
+    location.href = '../viewImages/viewImages.php'
     return;
   }
   e.preventDefault();

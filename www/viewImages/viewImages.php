@@ -20,59 +20,102 @@
   <body>
     <main>
     <link rel="stylesheet" href="viewImages.css" />
-
+      <?php session_start() ?>
       <!-- Handle Logged in view -->
     <?php if (isset($_SESSION["loggedIn"])) : ?>
-      <div class="container">
-        <article class="post">
-          <!-- POST HEADER -->
-          <section class="post__header header">
-            <section class="header__left">
-              <img
-                src="../profileImgRepo/img1.jpeg"
-                alt="profile Img here"
-                class="post__user_profileImg"
-              />
-              <div class="post__user user">
-                <span class="user__name"> MinhPoRo </span>
-                <button
-                  type="button"
-                  class="close delete_option"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <span class="post__date"> 00:08:56 05-05-2022 </span>
-            </section>
-          </section>
+      <?php require('loginUser.php'); ?>
+      <div class="container"> 
+        <?php foreach($uploadImages as $img) : ?>
+    <article class="post">
+    <!-- POST HEADER -->
+    <section class="post__header header">
+      <section class="header__left">
+      <?php $profileImage = getProfileImgByEmail($profileImages,$img[0]) ?>
+        <img
+          <?php echo "src=../profileImgRepo/" . $profileImage[1]?>
+          alt="profile Img here"
+          class="post__user_profileImg"
+        />
+        <div class="post__user user">
+          <span class="user__name"> <?php echo $img[5].' '.$img[6]?> </span>
+          <button
+            type="button"
+            class="close delete_option"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <span class="post__date"> <?php echo $img[4]?> </span>
+      </section>
+    </section>
+  
+    <!-- POST CONTENT -->
+    <section class="post__content content">
+      <p class="content__paragraph">
+      <?php echo $img[2]?>
+      </p>
+      <img
+        src=<?php echo "../uploadImgRepo/" . $img[1]?>
+        alt="upload Image here"
+        class="content__image"
+      />
+    </section>
+  </article>
 
-          <!-- POST CONTENT -->
-          <section class="post__content content">
-            <p class="content__paragraph">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-              autem dolorum numquam error doloribus, suscipit laudantium alias
-              voluptatibus animi possimus quia ex minus incidunt libero quis
-              amet exercitationem placeat doloremque. Quia magni vel, esse harum
-              debitis ipsam voluptates cumque commodi dolorem tenetur
-              necessitatibus totam voluptate perspiciatis error quas assumenda
-              deleniti libero ipsa asperiores omnis nobis in praesentium?
-              Voluptatibus, fugit harum.
-            </p>
-            <img
-              src="../uploadImgRepo/img0.jpg"
-              alt="upload Image here"
-              class="content__image"
-            />
-          </section>
-        </article>
-      </div>
-      <?php endif ?>
+    <?php endforeach; ?>
+        </div>
 
-      <!-- Handle Other View -->
+<?php endif ?>
+
+      <!-- Handle Guest View -->
       <?php if (!isset($_SESSION["loggedIn"])) : ?>
-     
+        <?php require('guest.php'); ?>
+        <div class="container"> 
+        <?php foreach($uploadImages as $img) : ?>
+    <article class="post">
+    <!-- POST HEADER -->
+    <section class="post__header header">
+      <section class="header__left">
+      <?php $profileImage = getProfileImgByEmail($profileImages,$img[0]) ?>
+        <img
+          <?php echo "src=../profileImgRepo/" . $profileImage[1]?>
+          alt="profile Img here"
+          class="post__user_profileImg"
+        />
+        <div class="post__user user">
+          <span class="user__name"> <?php echo $img[5].' '.$img[6]?> </span>
+          <button
+            type="button"
+            class="close delete_option"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <span class="post__date"> <?php echo $img[4]?> </span>
+      </section>
+    </section>
+  
+    <!-- POST CONTENT -->
+    <section class="post__content content">
+      <p class="content__paragraph">
+      <?php echo $img[2]?>
+      </p>
+      <img
+        src=<?php echo "../uploadImgRepo/" . $img[1]?>
+        alt="upload Image here"
+        class="content__image"
+      />
+    </section>
+  </article>
+
+    <?php endforeach; ?>
+        </div>
+
+   
         <?php endif ?>
+
     </main>
   </body>
 </html>

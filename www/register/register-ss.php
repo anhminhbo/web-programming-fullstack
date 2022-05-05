@@ -47,6 +47,9 @@
             if (file_exists($target_file)) {
                 array_push($errors, "Sorry, file already exists.");
             }
+            if ($_FILES["profileImg"]["size"] == 0) {
+                array_push($errors, "Image size exceeds 2MB.");
+            }
         }
         else {
             $target_file = $target_dir . "default.png";

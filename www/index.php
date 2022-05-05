@@ -42,16 +42,16 @@
               <li>
                   <a href="shareImages/shareImages.php">
                       <i class='bx bx-image-add'></i>
-                      <span class="link_name">Upload Images</span>
+                      <span class="link_name">Upload Image</span>
                   </a>
-                  <span class="tooltip">Upload Images</span>
+                  <span class="tooltip">Upload Image</span>
               </li>
               <li>
                   <a href="viewImages/viewImages.php">
                       <i class='bx bx-image-alt'></i>
-                      <span class="link_name">Share Images</span>
+                      <span class="link_name">View Images</span>
                   </a>
-                  <span class="tooltip">Share Images</span>
+                  <span class="tooltip">View Images</span>
               </li>
           </ul>
           <div class="profile_content">

@@ -11,10 +11,10 @@ function readInfo($dbRepoPath, $mode) {
 }
 function storeInfo($dbRepoPath, $arrayText, $mode) {
     // Store data to database
-    $appendDb = fopen($dbRepoPath, $mode);
-    flock($appendDb, LOCK_EX);
-    fputcsv($appendDb, $arrayText);
-    flock($appendDb, LOCK_UN);
-    fclose($appendDb);
+    $writeDb = fopen($dbRepoPath, $mode);
+    flock($writeDb, LOCK_EX);
+    fputcsv($writeDb, $arrayText);
+    flock($writeDb, LOCK_UN);
+    fclose($writeDb);
    }
 ?>
