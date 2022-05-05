@@ -4,12 +4,28 @@
     --s4: calc(4px*1.5);
     --s8: calc(8px*1.5);
     --logo:calc(32px);
+    --color: rgb(38, 38, 38);
+}
+.container-navbar{
+    border-bottom-width:1px ;
+    border-bottom-style: solid;
+    color: var(--color);
+    background-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(219, 219, 219);
 }
 .logo{
     width: var(--logo);
     height: var(--logo);
 }
-.nav-justified{flex-basis: 1;}
+.form-control{
+    color: var(--color);
+    border-bottom-color: black;
+    border-width: 1px;
+}
+
+.nav-justified{
+    margin-bottom: 0;
+    flex-basis: 1;}
 .bg-custom{
     background-color:#130f40;
     }
@@ -43,4 +59,33 @@
 }
 .buttons{
     margin: calc(var(--s8)/2);
+}
+
+@media(max-width:768px){
+    .form-control{
+        display: none;
+    }
+    .btn-outline-success{
+        display: none;
+    }
+    #Capa_1{
+        display: none;
+    }
+    .cookie-consent-modal{
+        width: auto;
+        padding:16px;
+        left: 0;
+        right: 0;
+    }
+    .buttons{
+        flex-direction: row !important;
+    }
+    .nav-link{
+        padding: 0 !important;
+        align-items: center;
+    }
+    .nav-item{
+        margin-right: 5px;
+        box-sizing: border-box;
+    }
 }
