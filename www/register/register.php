@@ -20,7 +20,7 @@
         <h1 class="mt-3 mb-3 p-3 fw-bolder">Register</h1>
         <div class="d-flex mb-3">
             <div class="form-floating">
-                <input type="text" class="form-control input-name" name="fname" id="fname" placeholder="#" onkeyup="checkfname()">
+                <input type="text" class="form-control input-name" name="fname" id="fname" placeholder="#">
                 <label for="fname" class="label-coloring">First name</label>
             </div>
             <div id="alert-fname" class="stack-top">
@@ -46,9 +46,8 @@
         <div class="mb-2 row align-left">
             <label class="col align-text-start" for="profileImg">Upload your Avatar picture</label>
         </div>
-        <div class="mb-3 row">
-            <input class="form-control col" name="profileImg" type="file" id="profileImg" accept=".jpg, .jpeg, .png, .gif" onchange="preview()">
-            <button onclick="clearImage()" class="btn btn-primary col-3">Delete</button>
+        <div class="mb-3 uploadPic">
+            <input class="form-control" name="profileImg" type="file" id="profileImg" accept=".jpg, .jpeg, .png, .gif">
         </div>
         <div class="picture-sizing">
             <div id="inf" class="alert alert-primary text-center fw-lighter fst-italic ms-5 me-5">Your picture will be displayed here.</div>
@@ -77,7 +76,7 @@
             </div>
         </div>
         <div class="mb-3 form-floating">
-            <input type="password" class="form-control input-text-and-password" name="re_pass" id="re-pass" placeholder="#" onkeyup="check_pass()">
+            <input type="password" class="form-control input-text-and-password" name="re_pass" id="re-pass" placeholder="#">
             <label for="re-pass" class="label-coloring">Retype Password</label>
             <div id="alert-re-pass" class="stack-top">
                 <div id="au-re-pass" class="arrow-left"></div>

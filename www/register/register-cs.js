@@ -1,17 +1,10 @@
 var inf = document.getElementById("inf");
 
-function preview() {
+document.getElementById("profileImg").onchange = function(e) {
     var fr = document.getElementById("frame");
     fr.style.display = "block";
     frame.src = URL.createObjectURL(event.target.files[0]);
     inf.style.display = "none";
-}
-
-function clearImage(e) {
-    e.preventDefault();
-    document.getElementById('formFile').value = null;
-    frame.src = "";
-    inf.style.display = "initial"
 }
 
 function check_pass(){
@@ -23,6 +16,8 @@ function check_pass(){
         document.getElementById("alert-re-pass").style.display = "none"
     }
 }
+
+document.getElementById("re-pass").addEventListener("change", check_pass);
 
 document.getElementById("r-btn").onclick = function(e){
     e.preventDefault();
