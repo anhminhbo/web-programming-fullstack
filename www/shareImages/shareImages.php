@@ -41,7 +41,7 @@
         <label class="col" for="form-image-upload">Share your image</label>
       </section>
 
-      <section class="mb-3 row">
+      <section class="mb-3 row uploadPic">
         <input
           class="form-control col"
           type="file"
@@ -49,9 +49,6 @@
           id="form-image-upload"
           name="imgUpload"
         />
-        <button class="btn btn-primary col-3" id="form-image-delete">
-          Delete
-        </button>
       </section>
 
       <section

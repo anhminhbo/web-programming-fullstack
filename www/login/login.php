@@ -45,7 +45,7 @@
         <?php include("../informErrors/errors.php")?>
         <div class="mb-3">
             Don't have an account?
-            <a href="../register/register.php" class="link">Register a new one</a>
+            <a href="../register/register.php" class="link">Register a new one!</a>
         </div>
     </form>
 </body>

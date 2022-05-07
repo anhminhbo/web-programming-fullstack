@@ -117,9 +117,23 @@
 
 .error-box{
     font-size: 15px;
+    padding-top: 21px;
 }
 
 .marginBottomResize{
     display: inline;
     margin-bottom: 5px;
+}
+
+.uploadPic{
+    width: 90%;
+}
+
+.link{
+    font-style: italic;
+    color: #000000;
+}
+
+.link:hover{
+    color: #0074d9;
 }

@@ -1,10 +1,14 @@
 #shareForm {
   width: 29rem;
-  background-color: rgba(128, 128, 128, 0.525);
+  background-color: rgba(59, 167, 200, 0.466);
 }
 
 #share-image-section {
-  padding-right: 200px;
+  padding-right: 16.5rem;
+}
+
+.uploadPic {
+  width: 90%;
 }
 
 #share-image-section label {
