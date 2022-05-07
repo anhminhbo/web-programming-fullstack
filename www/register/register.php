@@ -91,6 +91,10 @@
         </div>
         <?php include("../informErrors/errors.php")?>
         <div class="mb-3">
+            Already have an account?
+            <a href="../login/login.php" class="link">Login here!</a>
+        </div>
+        <div class="mb-3">
             <button id="r-btn" class="btn btn-dark mr-1">Reset</button>
             <button id="s-btn" type="submit" class="btn btn-primary ml-1">Register</button>
         </div>

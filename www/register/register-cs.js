@@ -54,14 +54,3 @@ document.getElementById("pass").onkeyup = function(e){
     }
     check_pass();
 }
-
-document.getElementById("s-btn").onclick = function(e){
-    if (!((document.getElementById("pass").value == document.getElementById("re-pass").value) && 
-        (document.getElementById("fname").value.match(nameregex)) && 
-        (document.getElementById("lname").value.match(nameregex)) &&
-        (document.getElementById("pass").value.match(passregex)))){
-            alert("Your input is invalid. Please input again.");
-            e.preventDefault();
-            location.reload();
-        }
-}
