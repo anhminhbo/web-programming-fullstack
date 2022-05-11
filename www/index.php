@@ -30,7 +30,6 @@
       </header>
 
       <main>
-      <?php print_r($_SESSION); ?>
       <?php if (isset($_SESSION["loggedIn"])) : ?>
         <aside class="sidebar">
           <div class="logoName">
@@ -42,9 +41,9 @@
               <li>
                   <a href="shareImages/shareImages.php">
                       <i class='bx bx-image-add'></i>
-                      <span class="link_name">Upload Image</span>
+                      <span class="link_name">Share Image</span>
                   </a>
-                  <span class="tooltip">Upload Image</span>
+                  <span class="tooltip">Share Image</span>
               </li>
               <li>
                   <a href="viewImages/viewImages.php">

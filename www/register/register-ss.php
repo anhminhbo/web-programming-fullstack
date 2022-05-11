@@ -11,20 +11,24 @@
     $lname = "";
     $email = "";
     $pass = "";
+    $re_pass = "";
     $errors = array();
     $target_dir = "../profileImgRepo/";
     $target_file = "";
     $imageFileType = "";
+    $nameregex = "/^[A-Za-z]{2,20}$/";
+    $passregex = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/";
 
     // Register user
 
-    if (isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["email"]) && isset($_POST["pass"])) {
+    if (isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["email"]) && isset($_POST["pass"]) && isset($_POST["re_pass"])) {
         
         // Attach data to variables
         $fname = $_POST["fname"];
         $lname = $_POST["lname"];
         $email = strtolower($_POST["email"]);
         $pass = $_POST["pass"];
+        $re_pass = $_POST["re_pass"];
         $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
 
         // Check if fname in database
@@ -53,6 +57,30 @@
         }
         else {
             $target_file = $target_dir . "default.png";
+        }
+
+        // Check if the email is invalid
+        if ($email == "") {
+            array_push($errors, "Email is invalid.");
+        }
+
+        // Check if the pass and the retype pass are matched
+        if (preg_match($passregex, $pass)) {
+            if ($pass != $re_pass) {
+            array_push($errors, "Password is not matched.");
+            }
+        }
+        else {
+            // Check if the password is invalid
+            array_push($errors, "Password is invalid.");
+        }
+
+        // Check if the name fields match the regex
+        if (!preg_match($nameregex, $fname)) {
+            array_push($errors, "First name is invalid");
+        }
+        if (!preg_match($nameregex, $lname)) {
+            array_push($errors, "Last name is invalid");
         }
 
         // STORING

@@ -39,15 +39,6 @@ function hideImgBox() {
   fr.style.display = "none";
 }
 
-document
-  .querySelector("#form-image-delete")
-  .addEventListener("click", (event) => {
-    event.preventDefault();
-    document.getElementById("form-image-upload").value = null;
-    hideImgBox();
-    showImgInstruction();
-  });
-
 // --- Handle when user submit form
 
 //img
@@ -112,7 +103,6 @@ function hideOptionError() {
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   if (isDescValid() && isImgValid() && isOptionValid()) {
-    location.href = '../viewImages/viewImages.php'
     return;
   }
   e.preventDefault();
