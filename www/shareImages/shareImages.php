@@ -1,10 +1,9 @@
 <?php 
+require("shareImages-ss.php");
 if (!isset($_SESSION["loggedIn"])) {
-  header('Location:../login/login.php');
+  header('Location:../index.php');
 }
 ?>
-
-<?php require("shareImages-ss.php") ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

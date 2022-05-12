@@ -1,4 +1,3 @@
-/* Google Fonts Import Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 *{
   margin: 0;
@@ -13,6 +12,7 @@ body{
     overflow: hidden;
 }
 .sidebar {
+    z-index: 100;
     background-color: #0074d9;
     position: fixed;
     top: 0;
@@ -211,12 +211,8 @@ body{
 }
 
 .websiteName{
-    position: absolute;
-    top: 0;
     color: white;
     padding-top: 10px;
-    padding-right: 20px;
-    padding-bottom: 10px;
     width: 100%;
     text-align: end;
     background: #0074d9;
@@ -252,4 +248,46 @@ body{
 
 .text a:hover{
     color: white;
+}
+
+.clear-padding-right{
+    padding-right: 0;
+}
+
+.brand{
+    margin-right: 0;
+    text-decoration: none;
+    margin-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav_list{
+    padding-left: 0;
+}
+
+.set-width{
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+.footer-nav{
+    text-align: center;
+    position: absolute;
+    top: 13%;
+    left: 10%;
+    right: 10%;
+}
+
+.set-height-nav-footer{
+    height: 55px;
+}
+
+div .menu a{
+    font-size: 20px;
+}
+
+.bg-darker{
+    background-color: rgba(0, 0, 0, 0.2);
 }

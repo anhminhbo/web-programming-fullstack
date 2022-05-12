@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 :root{
     --s-step: calc(97.2307692rem/12);
     --z-index:5050;
@@ -5,17 +6,23 @@
     --s8: calc(8px*1.5);
     --logo:calc(32px);
     --color: rgb(38, 38, 38);
+    --bg-colour:#0074d9
 }
+.container-fluid {
+    justify-content: round !important
+}
+
 .container-navbar{
     border-bottom-width:1px ;
     border-bottom-style: solid;
     color: var(--color);
-    background-color: rgb(255, 255, 255);
+    background-color: var(--bg-colour);
     border-bottom-color: rgb(219, 219, 219);
 }
 .logo{
     width: var(--logo);
     height: var(--logo);
+    margin-top: -13px;
 }
 .form-control{
     color: var(--color);
@@ -43,7 +50,6 @@
     width: calc(var(--s-step) * 4);
     z-index: var(--z-index);
     position: fixed;
-    left: 16px;
     bottom: 16px;
     right: 16px;
     padding: 32px;
@@ -60,7 +66,15 @@
 .buttons{
     margin: calc(var(--s8)/2);
 }
-
+.btn-outline-success{
+    background-color: #fee !important;
+}
+footer{
+    background-color: var(--bg-colour);
+}
+a{
+    color:#fee;
+}
 @media(max-width:768px){
     .form-control{
         display: none;
