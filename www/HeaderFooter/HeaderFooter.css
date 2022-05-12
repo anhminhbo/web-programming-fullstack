@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 :root{
     --s-step: calc(97.2307692rem/12);
     --z-index:5050;
@@ -21,6 +22,7 @@
 .logo{
     width: var(--logo);
     height: var(--logo);
+    margin-top: -13px;
 }
 .form-control{
     color: var(--color);
