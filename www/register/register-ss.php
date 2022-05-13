@@ -45,7 +45,7 @@
         if (isset($_FILES["profileImg"]) && $_FILES["profileImg"]["name"] != "") {
             $target_file = $target_dir . basename($_FILES["profileImg"]["name"]);
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
                 array_push($errors, "File type is wrong. Please upload a picture.");
             }
             if (file_exists($target_file)) {

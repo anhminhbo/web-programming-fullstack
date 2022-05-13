@@ -1,5 +1,17 @@
 <?php
   session_start();
+  require_once('util/db.php');
+  $mg = "";
+  $read_db = readInfo("profileImgRepo/profilePicture.db", "r");
+  if (isset($_SESSION["email"])){
+    foreach ($read_db as $line) {
+      $email_temp = $line[0];
+      if ($_SESSION["email"] == $email_temp) {
+          $img = $line[1];
+          break;
+      }
+    }
+  } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,12 +56,21 @@
           <i class="bx bx-menu" id="btn"></i>
           <ul class="nav_list">
               <li>
+                  <a href="myAccount/myAccount.php">
+                      <i class='bx bx-user'></i>
+                      <span class="link_name">My Account</span>
+                  </a>
+                  <span class="tooltip">My Acccount</span>
+              </li>
+              <div class="lineSpace"></div>
+              <li>
                   <a href="shareImages/shareImages.php">
                       <i class='bx bx-image-add'></i>
                       <span class="link_name">Share Image</span>
                   </a>
                   <span class="tooltip">Share Image</span>
               </li>
+              <div class="lineSpace"></div>
               <li>
                   <a href="viewImages/viewImages.php">
                       <i class='bx bx-image-alt'></i>
@@ -61,7 +82,7 @@
           <div class="profile_content">
               <div class="profile">
                   <div class="profile_details">
-                      <img src=<?php echo "profileImgRepo/" . $_SESSION["imgFileName"]?> alt="">
+                      <img src=<?php echo "profileImgRepo/" . $img?> alt="">
                       <div class="name">
                           <?php echo $_SESSION["fname"] . " " . $_SESSION["lname"]?>
                       </div>

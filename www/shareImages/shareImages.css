@@ -34,3 +34,8 @@
 .error{
   color: red;
 }
+
+.marginBottomResize{
+  display: inline;
+  margin-bottom: 5px;
+}

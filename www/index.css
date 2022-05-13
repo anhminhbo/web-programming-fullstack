@@ -83,6 +83,7 @@ body{
 }
 
 .sidebar ul li .tooltip{
+    font-family: 'Poppins', sans-serif;
     position: absolute;
     left: 122px;
     top: 50%;
@@ -290,4 +291,9 @@ div .menu a{
 
 .bg-darker{
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.lineSpace{
+    margin-top: 5px;
+    display: block;
 }
