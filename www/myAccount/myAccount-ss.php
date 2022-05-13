@@ -66,5 +66,6 @@
             unlink($uploadPath);
             move_uploaded_file($_FILES["changeprofileImg"]["tmp_name"], $uploadPath);
         }
+        header("Location: ../index.php");
     }
 ?>
