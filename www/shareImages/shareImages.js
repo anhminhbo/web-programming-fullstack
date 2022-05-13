@@ -49,10 +49,10 @@ function isImgValid() {
   return isValid;
 }
 
-function displayImgError() {
-  const imgErr = document.querySelector("#img-error");
-  imgErr.innerHTML = "Your upload is not an image.";
-}
+// function displayImgError() {
+//   const imgErr = document.querySelector("#img-error");
+//   imgErr.innerHTML = "Your upload is not an image.";
+// }
 
 function hideImgError() {
   const imgErr = document.querySelector("#img-error");
@@ -98,19 +98,3 @@ function hideOptionError() {
   const levelError = document.querySelector("#level-error");
   levelError.innerHTML = "";
 }
-
-//form
-const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
-  if (isDescValid() && isImgValid() && isOptionValid()) {
-    return;
-  }
-  e.preventDefault();
-  if (!isImgValid()) displayImgError();
-  else hideImgError;
-
-  if (!isDescValid()) displayDescError();
-  else hideDescError();
-  if (!isOptionValid()) displayOptionError();
-  else hideOptionError();
-});

@@ -64,7 +64,6 @@ if (!isset($_SESSION["loggedIn"])) {
       </section>
 
       <img id="frame" src="" class="img-fluid rounded img-thumbnail" />
-      <span id="img-error" class="error"></span>
 
       <section class="form-floating mb-3 mt-3">
         <textarea
@@ -75,8 +74,6 @@ if (!isset($_SESSION["loggedIn"])) {
         ></textarea
         ><label for="description">Description</label>
       </section>
-
-      <span id="desc-error" class="error mb-3"></span>
 
       <select
         class="form-select form-select-sm mb-2"
@@ -90,13 +87,11 @@ if (!isset($_SESSION["loggedIn"])) {
         <option value="3">Private</option>
       </select>
 
-      <span id="level-error" class="error mb-3"></span>
-
       <section class="mb-3">
         <button type="submit" name="shareImgSubmit" class="btn btn-primary ml-1">Sharing now</button>
       </section>
 
-      <?php require("error.php") ?>
+      <?php include("../informErrors/errors.php")?>
     </form>
     <script src="shareImages.js"></script>
   </body>
