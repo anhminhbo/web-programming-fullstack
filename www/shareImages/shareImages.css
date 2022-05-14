@@ -39,3 +39,8 @@
   display: inline;
   margin-bottom: 5px;
 }
+
+.content{
+  padding-top: 6rem;
+  padding-bottom: 10rem;
+}

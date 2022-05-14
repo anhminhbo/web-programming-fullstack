@@ -16,9 +16,11 @@
     <title>My Account</title>
 </head>
 <body>
-    <form class="container-sm mt-5 mb-5 d-flex align-items-center align-self-center flex-column rounded shadow-lg outside-box" enctype="multipart/form-data" method="post">
+    <?php include($_SERVER['DOCUMENT_ROOT']."/www/HeaderFooter/Header.php")?>
+    <?php include($_SERVER['DOCUMENT_ROOT']."/www/HeaderFooter/Sidebar.php")?>
+    <form class="container-sm mb-5 d-flex align-items-center align-self-center flex-column rounded shadow-lg outside-box" enctype="multipart/form-data" method="post">
         <h1 class="mt-3 mb-3 p-3 fw-bolder">My Account</h1>
-        <div class="mb-2 row align-left">
+        <div class="mb-2 align-left labelImg">
             <label class="col align-text-start" for="profileImg">Change your Avatar picture</label>
         </div>
         <div class="mb-3 uploadPic">
@@ -41,6 +43,7 @@
             }
         ?>
     </form>
+    <?php include($_SERVER['DOCUMENT_ROOT']."/www/HeaderFooter/Footer.php")?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
