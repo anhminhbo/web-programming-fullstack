@@ -119,11 +119,11 @@ a{
     padding-left: 0;
 }
 
-.set-width{
+.setWidth{
     width: 100%;
     bottom: 0;
     right: 0;
-    position: fixed;
+    position: absolute;
     z-index: 99;
 }
 

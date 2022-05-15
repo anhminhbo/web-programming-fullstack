@@ -51,3 +51,27 @@
         margin-bottom: 10%;
     }
 }
+
+.container-box{
+    background: rgba(59, 167, 200, 0.466);
+    color: #0074d9;
+    z-index: 9;
+    position: absolute;
+    top: 40%;
+    bottom: 40%;
+    left: 25%;
+    right: 25%;
+    text-align: center;
+    vertical-align: bottom;
+    border-radius: 12px;
+}
+
+.text{
+    text-align: center;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 20px;
+}

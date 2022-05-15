@@ -137,3 +137,8 @@
 .link:hover{
     color: #0074d9;
 }
+
+.paddingSizing{
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+}
