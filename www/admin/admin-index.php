@@ -11,10 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="admin-index.css">
-    <script src="tableaccount.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
     <link href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap5.min.css">
-    <link href=view-images.php>
     <title>Admin</title>
   </head>
   <body>
@@ -25,14 +23,15 @@
         <div class="col-md-8">
           <div class="search">
             <i class="fa fa-search"></i>
-            <input type="text" class="form-control" placeholder="Search for an account">
-            <button class="btn btn-primary">Search</button>
+            <input type="text" class="form-control" placeholder="Search for an account"
+            id="searchInput">
+            <button class="btn btn-primary" id="searchBtn">Search</button>
           </div>
         </div>
       </div>
     </div>
   
-
+    <a href="view-images.php">View all images here</a>
      
     <!-- View Images a-->
 
@@ -49,37 +48,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011-07-25</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009-01-12</td>
-            </tr>
+          <?php
+          require_once('viewAllAcc/viewAllAcc.php')
+          ?>
         </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-            </tr>
-        </tfoot>
     </table>
 
     <!-- Pagination bootstrap -->
