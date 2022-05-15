@@ -28,7 +28,7 @@
                     <i class='bx bx-user'></i>
                     <span class="link_name">My Account</span>
                 </a>
-                <span class="tooltip">My Acccount</span>
+                <span class="tooltip">My Account</span>
             </li>
             <div class="lineSpace"></div>
             <li>

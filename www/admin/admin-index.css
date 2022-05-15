@@ -6,8 +6,14 @@ body {
   font-weight: 300;
 }
 
-.height {
-  height: 100vh;
+.set-margin{
+  margin-bottom: 10rem;
+}
+
+.search-bar {
+  position: absolute;
+  width: 90%;
+  top: 7%;
 }
 
 .search {

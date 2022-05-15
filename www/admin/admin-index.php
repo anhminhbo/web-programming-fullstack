@@ -18,24 +18,20 @@
     <title>Admin</title>
   </head>
   <body>
-    
+  <main> 
     <!-- Search bar-->
-    <div class="container">
-
-<div class="row height d-flex justify-content-center align-items-center">
-
-  <div class="col-md-8">
-
-    <div class="search">
-      <i class="fa fa-search"></i>
-      <input type="text" class="form-control" placeholder="Search for an account">
-      <button class="btn btn-primary">Search</button>
+    <div class="container set-margin">
+      <div class="row search-bar justify-content-center align-items-center">
+        <div class="col-md-8">
+          <div class="search">
+            <i class="fa fa-search"></i>
+            <input type="text" class="form-control" placeholder="Search for an account">
+            <button class="btn btn-primary">Search</button>
+          </div>
+        </div>
+      </div>
     </div>
-    
-  </div>
   
-</div>
-</div>
 
      
     <!-- View Images a-->
@@ -87,7 +83,7 @@
     </table>
 
     <!-- Pagination bootstrap -->
-    <nav aria-label="Page navigation example">
+    <nav aria-label="Page navigation example" class="d-flex mt-5 justify-content-center align-items-center">
       <ul class="pagination">
         <li class="page-item"><a class="page-link" href="#">Previous</a></li>
         <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -96,7 +92,7 @@
         <li class="page-item"><a class="page-link" href="#">Next</a></li>
       </ul>
     </nav>
-    </div>
-    <script src="admin.js"></script>
+  </main>
+  <script src="admin.js"></script>
   </body>
 </html>
