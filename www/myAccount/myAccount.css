@@ -1,6 +1,7 @@
 .outside-box{
-    margin-top: 7rem;
-    margin-left: 33rem;
+    margin-top: 25vh;
+    margin-left: auto;
+    margin-right: auto;
     width: 29rem; 
     background-color: rgba(59, 167, 200, 0.466);
 }

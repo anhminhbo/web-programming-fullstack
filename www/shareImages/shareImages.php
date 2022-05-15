@@ -48,9 +48,9 @@ if (!isset($_SESSION["loggedIn"])) {
           <label class="col" for="form-image-upload">Share your image</label>
         </section>
 
-        <section class="mb-3 row uploadPic">
+        <section class="mb-3 uploadPic">
           <input
-            class="form-control col"
+            class="form-control"
             type="file"
             accept=".jpg, .jpeg, .png, .gif"
             id="form-image-upload"
