@@ -30,11 +30,9 @@
         </div>
       </div>
     </div>
-  
-    <a href="view-images.php">View all images here</a>
      
     <!-- View Images a-->
-    <a class="btn btn-primary" href="view-images.php" role="button">View Images</a>
+    <a class="btn btn-primary" href="view-images/view-images.php" role="button">View Images</a>
     <!-- Table of Account -->
     <!-- https://www.youtube.com/watch?v=dyBlWHx5p_0 -->
     <table id="example" class="table table-striped" style="width:100%">
@@ -48,8 +46,46 @@
             </tr>
         </thead>
         <tbody>
+
           <?php
-          require_once('viewAllAcc/viewAllAcc.php')
+          if ($_GET['search'] == '') {
+            require_once('viewAllAcc/viewAllAcc.php');
+          } 
+          else {
+            $searchValue = strtolower($_GET['search']);
+
+            $accountsBasedOnSearch = [];
+        
+            foreach ($_SESSION['accounts'] as $acc) {
+              if (str_contains($acc[0],strtolower($searchValue)) ||
+               str_contains($acc[2],strtolower($searchValue))
+            || str_contains($acc[3],strtolower($searchValue))) {
+                $accountsBasedOnSearch[] = $acc;
+            }
+            }
+        
+            if ($accountsBasedOnSearch) {
+              foreach ($accountsBasedOnSearch as $accSear) {
+                  echo '<tr>';
+              
+                  echo '<td>' . $accSear[0] .'</td>';
+              
+                  echo '<td>' . $accSear[1] .'</td>';
+              
+                  echo '<td>' . $accSear[2] .'</td>';
+              
+                  echo '<td>' . $accSear[3] .'</td>';
+              
+                  echo '<td>' . $accSear[4] .'</td>';
+              
+              
+                  echo '</tr>';
+              }
+          } else {
+              echo '<h3> No accounts available to display </h3>';
+          }
+          
+          }
           ?>
         </tbody>
     </table>
