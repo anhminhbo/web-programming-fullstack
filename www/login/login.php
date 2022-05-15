@@ -9,7 +9,6 @@
     if (isset($_SESSION["pass"])) {
         $passFromRegister = $_SESSION["pass"];
     }
-    // unset($_SESSION["email"]);
     unset($_SESSION["pass"]);
 ?>
 <!DOCTYPE html>
@@ -24,24 +23,43 @@
     <title>Login</title>
 </head>
 <body>
-    <form class="container-sm d-flex align-items-center align-self-center flex-column rounded shadow-lg outside-box login-box" method="post">
-        <h1 class="mt-3 mb-3 p-3 fw-bolder">Login</h1>
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control input-text-and-password" name="email" id="email" placeholder="#" value=<?php echo $emailFromRegister?>>
-            <label for="email" class="label-coloring">Email</label>
+    <?php include($_SERVER['DOCUMENT_ROOT']."/www/HeaderFooter/Header.php")?>
+    <?php include($_SERVER['DOCUMENT_ROOT']."/www/HeaderFooter/Sidebar.php")?>
+    <?php if (!isset($_SESSION["loggedIn"])) : ?>
+        <form class="container-sm d-flex align-items-center align-self-center flex-column rounded shadow-lg outside-box login-box" method="post">
+            <h1 class="mt-3 mb-3 p-3 fw-bolder">Login</h1>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control input-text-and-password" name="email" id="email" placeholder="#" value=<?php echo $emailFromRegister?>>
+                <label for="email" class="label-coloring">Email</label>
+            </div>
+            <div class="mb-3 form-floating">
+                <input type="password" class="form-control input-text-and-password" name="pass" id="pass" placeholder="#" value=<?php echo $passFromRegister?>>
+                <label for="pass" class="label-coloring">Password</label>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary ml-1" name="loginAction">Login</button>
+            </div>
+            <?php include("../informErrors/errors.php")?>
+            <div class="mb-3">
+                Don't have an account?
+                <a href="../register/register.php" class="link">Register a new one!</a>
+            </div>
+        </form>
+    <?php endif?>
+    <?php if (isset($_SESSION["loggedIn"])) : ?>
+        <div class="container-box">
+            <div class="text">
+            You are currently logged in.
+            <a href="/www/index.php?logout=true">Logout!</a>
+            </div>
+            <?php
+                if (isset($_GET["logout"])) {
+                    session_destroy();
+                    header("Location: index.php");    
+                }
+            ?>
         </div>
-        <div class="mb-3 form-floating">
-            <input type="password" class="form-control input-text-and-password" name="pass" id="pass" placeholder="#" value=<?php echo $passFromRegister?>>
-            <label for="pass" class="label-coloring">Password</label>
-        </div>
-        <div class="mb-3">
-            <button type="submit" class="btn btn-primary ml-1" name="loginAction">Login</button>
-        </div>
-        <?php include("../informErrors/errors.php")?>
-        <div class="mb-3">
-            Don't have an account?
-            <a href="../register/register.php" class="link">Register a new one!</a>
-        </div>
-    </form>
+    <?php endif?>
+    <?php include($_SERVER['DOCUMENT_ROOT']."/www/HeaderFooter/Footer.php")?>
 </body>
 </html>

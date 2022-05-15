@@ -26,7 +26,7 @@
     <?php include($_SERVER['DOCUMENT_ROOT']."/www/HeaderFooter/Header.php")?>
     <?php include($_SERVER['DOCUMENT_ROOT']."/www/HeaderFooter/Sidebar.php")?>
       <?php require('loginUser.php'); ?>
-      <div class="container"> 
+      <div class="container contain-box">  
         <?php foreach($uploadImages as $img) : ?>
 
           <article class="post">
@@ -74,7 +74,7 @@
       <!-- Handle Guest View -->
       <?php if (!isset($_SESSION["loggedIn"])) : ?>
         <?php require('guest.php'); ?>
-        <div class="container"> 
+        <div class="container contain-box"> 
         <?php foreach($uploadImages as $img) : ?>
     <article class="post">
     <!-- POST HEADER -->
@@ -120,5 +120,6 @@
         <?php endif ?>
 
     </main>
+    <?php include($_SERVER['DOCUMENT_ROOT']."/www/HeaderFooter/Footer.php")?>
   </body>
 </html>

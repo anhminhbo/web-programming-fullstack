@@ -1,18 +1,16 @@
-<footer class="text-center text-white set-width" >
+<footer class="text-center text-white setWidth" >
     <link rel="stylesheet" href="/www/HeaderFooter/HeaderFooter.css">
       <!-- Grid container -->
-      <?php if (isset($_SESSION["loggedIn"])) : ?>
       <div class="container set-height-nav-footer">
           <div class="footer-nav align-middle">
             <p class="menu cs-cursor fw-bolder d-flex justify-content-evenly " >
-              <a href="#">Home</a>
+              <a href="/www/index.php">Home</a>
               <a href="https://github.com/anhminhbo/web-programming-fullstack">About</a>
               <a href="https://github.com/anhminhbo/web-programming-fullstack/blob/main/README.md">Privacy</a>
               <a href="https://github.com/anhminhbo/web-programming-fullstack/blob/main/README.md">Help</a>
             </p>
           </div>
       </div>
-      <?php endif ?>
       
       <!-- Modal -->
       <div class="cookie-consent-modal ">
