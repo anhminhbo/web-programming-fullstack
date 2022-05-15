@@ -4,7 +4,7 @@
         <nav class="navbar navbar-expand-lg navbar-light d-sm-flex" >
           <div class="container-fluid d-flex justify-content-end clear-padding-right">
             <?php if (isset($_SESSION["loggedIn"])) : ?>
-              <form class="d-flex me-3">
+              <form class="d-flex me-3 search-bar">
                 <input class="form-control me-2 d-inline" type="search" placeholder="Type something here..." aria-label="Search">
                 <button class="btn btn-outline-warning d-inline" type="submit">Search</button>
               </form>
