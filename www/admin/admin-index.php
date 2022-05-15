@@ -34,7 +34,7 @@
     <a href="view-images.php">View all images here</a>
      
     <!-- View Images a-->
-
+    <a class="btn btn-primary" href="view-images.php" role="button">View Images</a>
     <!-- Table of Account -->
     <!-- https://www.youtube.com/watch?v=dyBlWHx5p_0 -->
     <table id="example" class="table table-striped" style="width:100%">
