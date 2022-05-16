@@ -15,7 +15,7 @@ if ($accounts) {
     foreach ($accounts as $acc) {
         echo '<tr>';
     
-        echo '<td>' . $acc[0] .'</td>';
+        echo '<td><a href="display-account.php?email='.$acc[0].'"'.'>'.$acc[0].'</a></td>';
     
         echo '<td>' . $acc[1] .'</td>';
     

@@ -56,7 +56,7 @@ if (isset($_GET['delete'])) {
   <body>
     <main>
     <link rel="stylesheet" href="view-images.css" />
-
+    <a href="../admin-index.php">Back to Admin Homepage</a>
      <!-- Get all images -->
       <?php 
         require_once('../../util/db.php');

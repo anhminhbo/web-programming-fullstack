@@ -48,28 +48,83 @@
         <tbody>
 
           <?php
-          if ($_GET['search'] == '') {
-            require_once('viewAllAcc/viewAllAcc.php');
-          } 
+          // Check when account is not available or search not available
+          if (!isset($_GET['search']) || !isset($_SESSION['accounts'])) {
+              // Check if search is available but accounts is not
+              if (isset($_GET['search'])) {
+                require_once('../util/db.php');
+                require_once('../util/timeHandler.php');
+
+                $accRepoPath = '../../accounts.db';
+
+                $accounts = readInfo($accRepoPath, 'r');
+
+                // sort by most recent registered account
+                usort($accounts,'created_time_cmp');
+
+                $_SESSION['accounts'] = $accounts;
+
+                $searchValue = strtolower($_GET['search']);
+
+                $accountsBasedOnSearch = [];
+    
+            
+                foreach ($_SESSION['accounts'] as $acc) {
+                  if (str_contains(strtolower($acc[0]),strtolower($searchValue)) ||
+                   str_contains(strtolower($acc[2]),strtolower($searchValue))
+                || str_contains(strtolower($acc[3]),strtolower($searchValue))) {
+                    $accountsBasedOnSearch[] = $acc;
+                }
+    
+                }
+            
+                if ($accountsBasedOnSearch) {
+                  foreach ($accountsBasedOnSearch as $accSear) {
+                      echo '<tr>';
+                  
+                      echo '<td>' .'<a href="display-account.php?email='.$accSear[0].'"'.'>'.$accSear[0].'</a></td>';
+                      
+                      echo '<td>' . $accSear[1] .'</td>';
+                  
+                      echo '<td>' . $accSear[2] .'</td>';
+                  
+                      echo '<td>' . $accSear[3] .'</td>';
+                  
+                      echo '<td>' . $accSear[4] .'</td>';
+                  
+                  
+                      echo '</tr>';
+                  }
+              } else {
+                  echo '<h3> No accounts available to display </h3>';
+              }
+              // // Check if search is unavailable but accounts is not
+              } else {
+                require('viewAllAcc/viewAllAcc.php');
+              }
+          }
+          // Check when account is available and search is available
           else {
             $searchValue = strtolower($_GET['search']);
 
             $accountsBasedOnSearch = [];
+
         
             foreach ($_SESSION['accounts'] as $acc) {
-              if (str_contains($acc[0],strtolower($searchValue)) ||
-               str_contains($acc[2],strtolower($searchValue))
-            || str_contains($acc[3],strtolower($searchValue))) {
+              if (str_contains(strtolower($acc[0]),strtolower($searchValue)) ||
+               str_contains(strtolower($acc[2]),strtolower($searchValue))
+            || str_contains(strtolower($acc[3]),strtolower($searchValue))) {
                 $accountsBasedOnSearch[] = $acc;
             }
+
             }
         
             if ($accountsBasedOnSearch) {
               foreach ($accountsBasedOnSearch as $accSear) {
                   echo '<tr>';
               
-                  echo '<td>' . $accSear[0] .'</td>';
-              
+                  echo '<td>' .'<a href="display-account.php?email='.$accSear[0].'"'.'>'.$accSear[0].'</a></td>';
+
                   echo '<td>' . $accSear[1] .'</td>';
               
                   echo '<td>' . $accSear[2] .'</td>';
