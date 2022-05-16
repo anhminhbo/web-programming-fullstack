@@ -1,19 +1,8 @@
-<!-- 
+<?php
+session_start();
+?>
 
-// https://www.youtube.com/watch?v=KdgqrHWg69M
-
-// Display email
-
-// Display password
-
-// Display fname
-
-// Display lname
-
-// Display created at
-
- -->
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,28 +12,32 @@
     <link rel="stylesheet" href="admin-index.css">
 </head>
 <body>
+    <?php
+    
+    ?>
     <div class="display-account-container">
         <div class="account account-email">
-            <h2>User-Email</h2>
+            <h2>User Email</h2>
             <p>???????</p>
         </div>
         <div class="account account-password">
-            <h2>User-Password</h2>
+            <h2>User Password</h2>
             <div class="container-password">
                 <input type="Password">
-                <button class="btn-rest">Rest</button>
+                <button class="btn-rest">Reset</button>
             </div>
         </div>
         <div class="account account-fname">
-            <h2>User-fname</h2>
+            <h2>User Firstname</h2>
             <p>???????</p>
         </div>
         <div class="account account-lname">
-            <h2>User-lname</h2>
+            <h2>User Lastname</h2>
             <p>????????</p>
         </div>
         <div class="account create_at">
-            <h2>Create_at</h2>
+            <h2>Create at</h2>
+            <p>????????</p>
         </div>
     </div>
 </body>
