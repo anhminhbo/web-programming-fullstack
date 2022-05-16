@@ -6,7 +6,7 @@
     --s8: calc(8px*1.5);
     --logo:calc(32px);
     --color: rgb(38, 38, 38);
-    --bg-colour:#0074d9
+    --bg-colour: #0074d9;
 }
 .container-fluid {
     justify-content: round !important

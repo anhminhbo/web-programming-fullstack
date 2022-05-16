@@ -21,35 +21,9 @@
     color: #0074d9;
 }
 
-.login-box{
-    margin-top: 10%;
-    margin-bottom: 10%;
-}
-
 .marginBottomResize{
     display: inline;
     margin-bottom: 5px;
-}
-
-@media only screen and (max-width: 575.98px){
-    .login-box{
-        margin-top: 30%;
-        margin-bottom: 10%;
-    }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767.98px){
-    .login-box{
-        margin-top: 25%;
-        margin-bottom: 10%;
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991.98px){
-    .login-box{
-        margin-top: 25%;
-        margin-bottom: 10%;
-    }
 }
 
 .container-box{
@@ -57,8 +31,8 @@
     color: #0074d9;
     z-index: 9;
     position: absolute;
-    top: 40%;
-    bottom: 40%;
+    top: 37%!important;
+    bottom: 43%!important;
     left: 25%;
     right: 25%;
     text-align: center;
@@ -74,4 +48,11 @@
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     font-size: 20px;
+}
+
+.contain-box{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 22vh;
 }
