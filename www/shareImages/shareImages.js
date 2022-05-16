@@ -1,9 +1,8 @@
 // --- Handle when user upload image
-function handlePreview() {
-  hideImgError();
+function handlePreview(event) {
   if (isImgValid()) {
     hideImgInstruction();
-    displayImgPreview();
+    displayImgPreview(event);
   } else {
     hideImgBox();
     showImgInstruction();
@@ -12,7 +11,7 @@ function handlePreview() {
 }
 
 // preview image before share
-function displayImgPreview() {
+function displayImgPreview(event) {
   var fr = document.getElementById("frame");
   fr.style.display = "initial";
   fr.src = URL.createObjectURL(event.target.files[0]);
@@ -53,11 +52,6 @@ function isImgValid() {
 //   const imgErr = document.querySelector("#img-error");
 //   imgErr.innerHTML = "Your upload is not an image.";
 // }
-
-function hideImgError() {
-  const imgErr = document.querySelector("#img-error");
-  imgErr.innerHTML = "";
-}
 
 //textarea
 function isDescValid() {

@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $numberOfItemsPerPage = 5;
+  $numberOfItemsPerPage = 3;
   // determine which page number visitor is currently on
   if (!isset($_GET['page'])) {
     $page = 1;
@@ -216,6 +216,7 @@
         }
         ?>
       <?php
+      
         $nextPage = $_GET['page'] + 1;
         if ($nextPage > $numberOfPages) {
             $nextPage = 1;

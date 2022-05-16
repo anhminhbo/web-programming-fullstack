@@ -11,7 +11,7 @@ usort($accounts,'created_time_cmp');
 
 $_SESSION['accounts'] = $accounts;
 
-$numberOfPages = ceil(count($_SESSION['accounts'])) / $numberOfItemsPerPage;
+$numberOfPages = ceil(count($_SESSION['accounts']) / $numberOfItemsPerPage);
 
 if ($accounts) {
     $totalLoopPerPage = 0;
