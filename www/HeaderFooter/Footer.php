@@ -140,4 +140,5 @@
         <a class="text-white" >RMIT University - Group MKKA</a>
       </div>
       <!-- Copyright -->
+	  <script src="/www/HeaderFooter/HeaderFooter.js"></script>
     </footer>

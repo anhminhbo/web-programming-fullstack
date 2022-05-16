@@ -20,7 +20,7 @@
                 break;
             }
         }
-        $account_db = "../../accounts.db";
+        $account_db = "../../../accounts.db";
         deleteContent($account_db);
         for ($i = 0; $i<count($read_db); $i++){
             $line = [$read_db[$i][0], $read_db[$i][1], $read_db[$i][2], $read_db[$i][3], $read_db[$i][4]];
