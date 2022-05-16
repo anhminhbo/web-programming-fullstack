@@ -108,7 +108,7 @@
                   for ($i = $thisPageFirstResult; $i<$totalLoopPerPage; $i++){
                     echo '<tr>';
                     
-                    echo '<td>' .'<a href="display-account.php?email='.$accountsBasedOnSearch[$i][0].'"'.'>'.$accountsBasedOnSearch[$i][0].'</a></td>';
+                    echo '<td>' .'<a href="displayAcc/display-account.php?email='.$accountsBasedOnSearch[$i][0].'"'.'>'.$accountsBasedOnSearch[$i][0].'</a></td>';
     
                     echo '<td>' . $accountsBasedOnSearch[$i][1] .'</td>';
                 
@@ -158,7 +158,7 @@
               for ($i = $thisPageFirstResult; $i<$totalLoopPerPage; $i++){
                 echo '<tr>';
                 
-                echo '<td>' .'<a href="display-account.php?email='.$accountsBasedOnSearch[$i][0].'"'.'>'.$accountsBasedOnSearch[$i][0].'</a></td>';
+                echo '<td>' .'<a href="displayAcc/display-account.php?email='.$accountsBasedOnSearch[$i][0].'"'.'>'.$accountsBasedOnSearch[$i][0].'</a></td>';
                 
                 echo '<td>' . $accountsBasedOnSearch[$i][1] .'</td>';
             

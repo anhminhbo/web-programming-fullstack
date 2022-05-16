@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="display-account.css">
 </head>
 <body>
+    <a href="../admin-index.php?page=1">Back to Admin Homepage</a>
     <div class="display-account-container">
         <div class="account account-email">
             <h2>User Email</h2>
