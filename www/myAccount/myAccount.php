@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (!isset($_SESSION["loggedIn"])){
-        header("Location: ".$_SERVER['DOCUMENT_ROOT']."/www/index.php");  
+        header("Location: ../index.php");  
     }
     include("myAccount-ss.php");
 ?>
@@ -40,7 +40,7 @@
             <?php
                 if (isset($_GET["logout"])) {
                     session_destroy();
-                    header("Location: index.php");    
+                    header("Location: ../index.php");    
                 }
             ?>
         </form>
