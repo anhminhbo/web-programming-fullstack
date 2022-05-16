@@ -4,7 +4,9 @@ searchBtn.addEventListener("click", (e) => {
   const searchInput = document.querySelector("#searchInput");
 
   location.href = "admin-index.php?page=1&search=" + searchInput.value;
+
 });
+
 
 // Highlight current page user are at
 const anchorPageLinks = document.querySelectorAll(".page-link");
