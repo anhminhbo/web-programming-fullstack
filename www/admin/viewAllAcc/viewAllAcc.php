@@ -24,7 +24,7 @@ if ($accounts) {
     for ($i = $thisPageFirstResult; $i<$totalLoopPerPage; $i++) {
         echo '<tr>';
         
-        echo '<td>' .'<a href="display-account.php?email='.$accounts[$i][0].'"'.'>'.$accounts[$i][0].'</a></td>';
+        echo '<td>' .'<a href="displayAcc/display-account.php?email='.$accounts[$i][0].'"'.'>'.$accounts[$i][0].'</a></td>';
         
         echo '<td>' . $accounts[$i][1] .'</td>';
     
