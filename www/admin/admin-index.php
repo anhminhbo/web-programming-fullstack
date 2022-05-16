@@ -1,5 +1,19 @@
 <?php
   session_start();
+  $numberOfItemsPerPage = 5;
+  // determine which page number visitor is currently on
+  if (!isset($_GET['page'])) {
+    $page = 1;
+  } else {
+    $page = $_GET['page'];
+  }
+
+  $_SESSION['page'] = $page;
+
+  // Index of first starting item in each page
+  $thisPageFirstResult = ($page-1)*$numberOfItemsPerPage;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,25 +91,37 @@
                 }
     
                 }
-            
+
+                // set numberOfPages
+                $numberOfPages = ceil(count($accountsBasedOnSearch) / $numberOfItemsPerPage);
                 if ($accountsBasedOnSearch) {
-                  foreach ($accountsBasedOnSearch as $accSear) {
-                      echo '<tr>';
-                  
-                      echo '<td>' .'<a href="display-account.php?email='.$accSear[0].'"'.'>'.$accSear[0].'</a></td>';
-                      
-                      echo '<td>' . $accSear[1] .'</td>';
-                  
-                      echo '<td>' . $accSear[2] .'</td>';
-                  
-                      echo '<td>' . $accSear[3] .'</td>';
-                  
-                      echo '<td>' . $accSear[4] .'</td>';
-                  
-                  
-                      echo '</tr>';
+                  $totalLoopPerPage = 0;
+
+                  if (count($accountsBasedOnSearch) > $page*$numberOfItemsPerPage){
+                    $totalLoopPerPage = $page*$numberOfItemsPerPage;
+                  } else {
+                    $totalLoopPerPage = count($accountsBasedOnSearch);
                   }
-              } else {
+
+                  
+
+                  for ($i = $thisPageFirstResult; $i<$totalLoopPerPage; $i++){
+                    echo '<tr>';
+                    
+                    echo '<td>' .'<a href="display-account.php?email='.$accountsBasedOnSearch[$i][0].'"'.'>'.$accountsBasedOnSearch[$i][0].'</a></td>';
+    
+                    echo '<td>' . $accountsBasedOnSearch[$i][1] .'</td>';
+                
+                    echo '<td>' . $accountsBasedOnSearch[$i][2] .'</td>';
+                
+                    echo '<td>' . $accountsBasedOnSearch[$i][3] .'</td>';
+                
+                    echo '<td>' . $accountsBasedOnSearch[$i][4] .'</td>';
+                
+                
+                    echo '</tr>';
+                }
+                } else {
                   echo '<h3> No accounts available to display </h3>';
               }
               // // Check if search is unavailable but accounts is not
@@ -118,41 +144,93 @@
             }
 
             }
+
+            $numberOfPages = ceil(count($accountsBasedOnSearch) / $numberOfItemsPerPage);
         
             if ($accountsBasedOnSearch) {
-              foreach ($accountsBasedOnSearch as $accSear) {
-                  echo '<tr>';
-              
-                  echo '<td>' .'<a href="display-account.php?email='.$accSear[0].'"'.'>'.$accSear[0].'</a></td>';
-
-                  echo '<td>' . $accSear[1] .'</td>';
-              
-                  echo '<td>' . $accSear[2] .'</td>';
-              
-                  echo '<td>' . $accSear[3] .'</td>';
-              
-                  echo '<td>' . $accSear[4] .'</td>';
-              
-              
-                  echo '</tr>';
+              $totalLoopPerPage = 0;
+              if (count($accountsBasedOnSearch) > $page*$numberOfItemsPerPage){
+                $totalLoopPerPage = $page*$numberOfItemsPerPage;
+              } else {
+                $totalLoopPerPage = count($accountsBasedOnSearch);
               }
+
+              for ($i = $thisPageFirstResult; $i<$totalLoopPerPage; $i++){
+                echo '<tr>';
+                
+                echo '<td>' .'<a href="display-account.php?email='.$accountsBasedOnSearch[$i][0].'"'.'>'.$accountsBasedOnSearch[$i][0].'</a></td>';
+                
+                echo '<td>' . $accountsBasedOnSearch[$i][1] .'</td>';
+            
+                echo '<td>' . $accountsBasedOnSearch[$i][2] .'</td>';
+            
+                echo '<td>' . $accountsBasedOnSearch[$i][3] .'</td>';
+            
+                echo '<td>' . $accountsBasedOnSearch[$i][4] .'</td>';
+            
+            
+                echo '</tr>';
+            }
           } else {
               echo '<h3> No accounts available to display </h3>';
           }
-          
           }
           ?>
         </tbody>
     </table>
 
     <!-- Pagination bootstrap -->
+    <?php
+    
+    ?>
     <nav aria-label="Page navigation example" class="d-flex mt-5 justify-content-center align-items-center">
       <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      <?php 
+        $prevPage = $_GET['page'] - 1;
+        if ($prevPage < 1) {
+          $prevPage = $numberOfPages;
+        }
+
+
+      if (isset($_GET['search'])) {
+        echo '<li class="page-item"><a class="page-link" href="admin-index.php?page='.
+        $prevPage.'&'.'search='.$_GET['search'].'">Previous</a></li>';
+      }
+
+      else {
+        echo '<li class="page-item"><a class="page-link" href="admin-index.php?page='.
+        $prevPage.'">Previous</a></li>';
+      }
+       ?>
+        <?php
+          if (isset($_GET['search'])) {
+            for ($i = 1; $i<$numberOfPages + 1; $i++){
+              echo '<li class="page-item"><a class="page-link" href="admin-index.php?page='.$i.
+              '&'.'search='.$_GET['search'].'">'.$i.'</a></li>';
+          }
+        } else {
+          for ($i = 1; $i<$numberOfPages + 1; $i++){
+            echo '<li class="page-item"><a class="page-link" href="admin-index.php?page='.$i.
+            '">'.$i.'</a></li>';
+        }
+        }
+        ?>
+      <?php
+        $nextPage = $_GET['page'] + 1;
+        if ($nextPage > $numberOfPages) {
+            $nextPage = 1;
+        }
+
+      if (isset($_GET['search'])) {
+        echo '<li class="page-item"><a class="page-link" href="admin-index.php?page='.
+        $nextPage.'&'.'search='.$_GET['search'].'">Next</a></li>';
+      }
+
+      else {
+        echo '<li class="page-item"><a class="page-link" href="admin-index.php?page='.
+        $nextPage.'">Next</a></li>';
+      }
+       ?>
       </ul>
     </nav>
   </main>
