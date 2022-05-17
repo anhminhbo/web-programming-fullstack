@@ -1,6 +1,5 @@
 # web-programming-fullstack demo video link: https://youtu.be/yMKzBmlOCuE
 # Github url: https://github.com/anhminhbo/web-programming-fullstack
-Web Programming Fullstack Pomodoro Music
 
 #Contribution
 Nguyễn Cường Anh Minh s3931605: 30%
