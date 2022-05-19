@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+.display-account-container{
+    display: block;
+    position: relative;
+    width: 23rem;
+    height: max-content;
+    margin: auto;
+    padding: 10px;
+    border: 3px soild yellow;
+    background-color: rgba(59, 167, 200, 0.466);
+    color: #333;
+    justify-content: center;
+    border-radius: 8px;
+    font-family: 'Poppins', 'san-serif';
+  }
+
+  .account{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color: white;
+    justify-content: center;
+    text-align: center;
+    display: block;
+    background-color: #0074d9;
+    border-radius: 8px;
+  
+  }
+
+  .container-password{
+    padding-bottom: 10px;
+  }

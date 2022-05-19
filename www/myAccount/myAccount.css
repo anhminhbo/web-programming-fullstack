@@ -1,0 +1,24 @@
+.paddingSizing{
+    padding-top: 25vh;
+}
+
+.outside-box{
+    margin-left: auto;
+    margin-right: auto;
+    width: 29rem; 
+    background-color: rgba(59, 167, 200, 0.466);
+}
+
+.align-left{
+    padding-left: 23px;
+    padding-right: 194px;
+}
+
+.uploadPic{
+    width: 90%;
+}
+
+.marginBottomResize{
+    display: inline;
+    margin-bottom: 5px;
+}

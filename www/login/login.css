@@ -21,28 +21,38 @@
     color: #0074d9;
 }
 
-.login-box{
-    margin-top: 10%;
-    margin-bottom: 10%;
+.marginBottomResize{
+    display: inline;
+    margin-bottom: 5px;
 }
 
-@media only screen and (max-width: 575.98px){
-    .login-box{
-        margin-top: 30%;
-        margin-bottom: 10%;
-    }
+.container-box{
+    background: rgba(59, 167, 200, 0.466);
+    color: #0074d9;
+    z-index: 9;
+    position: absolute;
+    top: 37%!important;
+    bottom: 43%!important;
+    left: 25%;
+    right: 25%;
+    text-align: center;
+    vertical-align: bottom;
+    border-radius: 12px;
 }
 
-@media only screen and (min-width: 576px) and (max-width: 767.98px){
-    .login-box{
-        margin-top: 25%;
-        margin-bottom: 10%;
-    }
+.text{
+    text-align: center;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 20px;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991.98px){
-    .login-box{
-        margin-top: 25%;
-        margin-bottom: 10%;
-    }
+.contain-box{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 22vh;
 }

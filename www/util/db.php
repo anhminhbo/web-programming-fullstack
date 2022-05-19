@@ -9,6 +9,7 @@ function readInfo($dbRepoPath, $mode) {
     fclose($readDb);
     return $records;
 }
+
 function storeInfo($dbRepoPath, $arrayText, $mode) {
     // Store data to database
     $writeDb = fopen($dbRepoPath, $mode);
@@ -17,4 +18,9 @@ function storeInfo($dbRepoPath, $arrayText, $mode) {
     flock($writeDb, LOCK_UN);
     fclose($writeDb);
    }
+
+function deleteContent($dbRepoPath){
+    $temp = fopen($dbRepoPath, 'w');
+    fclose($temp);
+}
 ?>
